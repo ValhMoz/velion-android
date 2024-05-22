@@ -2,6 +2,7 @@ package com.sfr.clinic_app.login.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.sfr.clinic_app.databinding.ActivityRecoverBinding;
@@ -43,5 +44,9 @@ public class RecoverActivity extends AppCompatActivity implements LoginView {
             Toast.makeText(this, "Error: credenciales incorrectas", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void onGoBack(View v){
+        finish();
     }
 }

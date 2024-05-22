@@ -1,17 +1,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerInParent="true"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:elevation="4dp"
+        android:background="@drawable/rounded_background"
+        android:layout_margin="16dp"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="32dp">
 
         <ImageView
+            android:id="@+id/imageViewLogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher_foreground"
             android:layout_marginBottom="24dp"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"/>
@@ -39,15 +48,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Iniciar sesión"
-            android:textColor="@android:color/white"/>
+            android:textColor="#ffffff"
+            android:padding="16dp"
+            android:onClick="functioniniciar"
+            android:layout_marginTop="8dp"/>
 
         <Button
             android:id="@+id/buttonRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Registrar"
+            android:textColor="#ffffff"
             android:onClick="onGoRegisterActivity"
-            android:textColor="@android:color/white"
+            android:padding="16dp"
             android:layout_marginTop="16dp"/>
 
         <TextView
@@ -56,6 +69,7 @@
             android:layout_height="wrap_content"
             android:text="¿Olvidaste tu contraseña?"
             android:gravity="center"
+            android:onClick="onGoRecoverActivity"
             android:textColor="@android:color/darker_gray"
             android:layout_marginTop="24dp"/>
 

@@ -1,56 +1,40 @@
 package com.sfr.clinic_app.api.Models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class User implements Parcelable {
+public class User {
+
     @SerializedName("id")
-    @Expose
     private int id;
 
     @SerializedName("name")
-    @Expose
     private String name;
 
-    @SerializedName("username")
-    @Expose
-    private String username;
+    @SerializedName("surname")
+    private String surname;
 
-    @SerializedName("email")
-    @Expose
-    private String email;
+    @SerializedName("dni")
+    private String dni;
 
-    @SerializedName("phone")
-    @Expose
-    private String phone;
-
-    @SerializedName("website")
-    @Expose
-    private String website;
+    @SerializedName("birthdate")
+    private String birthdate;
 
     @SerializedName("address")
-    @Expose
-    private Address address;
+    private String address;
 
-    @SerializedName("geo")
-    @Expose
-    private Geo geo;
+    @SerializedName("province")
+    private String province;
 
-    @SerializedName("company")
-    @Expose
-    private Company company;
+    @SerializedName("city")
+    private String city;
 
-    public Company getCompany() {
-        return company;
-    }
+    @SerializedName("postal_code")
+    private String postalCode;
 
-    public void setCompany(Company company) {
-        this.company = company;
-    }
+    @SerializedName("password")
+    private String password;
 
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -67,95 +51,69 @@ public class User implements Parcelable {
         this.name = name;
     }
 
-    public String getUsername() {
-        return username;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getEmail() {
-        return email;
+    public String getDni() {
+        return dni;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getBirthdate() {
+        return birthdate;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
     }
 
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public Geo getGeo() {
-        return geo;
+    public String getProvince() {
+        return province;
     }
 
-    public void setGeo(Geo geo) {
-        this.geo = geo;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getCity() {
+        return city;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
-        dest.writeString(name);
-        dest.writeString(username);
-        dest.writeString(email);
-        dest.writeString(phone);
-        dest.writeString(website);
-        dest.writeParcelable(address, flags);
-        dest.writeParcelable(geo, flags);
-        dest.writeParcelable(company, flags);
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    protected User(Parcel in) {
-        id = in.readInt();
-        name = in.readString();
-        username = in.readString();
-        email = in.readString();
-        phone = in.readString();
-        website = in.readString();
-        address = in.readParcelable(Address.class.getClassLoader());
-        geo = in.readParcelable(Geo.class.getClassLoader());
-        company = in.readParcelable(Company.class.getClassLoader());
+    public String getPostalCode() {
+        return postalCode;
     }
 
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
+
 

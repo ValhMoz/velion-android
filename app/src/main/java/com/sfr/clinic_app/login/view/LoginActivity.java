@@ -26,14 +26,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initInjection();
-        binding.buttonLogin.setOnClickListener(new View.OnClickListener(){
+       /* binding.buttonLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 String username = Objects.requireNonNull(binding.editTextUsername.getText()).toString();
                 String password = Objects.requireNonNull(binding.editTextPassword.getText()).toString();
                 ;                presenter.checkCredentials(username, password);
             }
-        });
+        });*/
     }
     private void initInjection() {
         AppComponent appComponent = DaggerAppComponent.builder()
@@ -60,5 +60,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     public void onGoRecoverActivity(View v){
         startActivity(new Intent(this, RecoverActivity.class));
+    }
+
+    public void functioniniciar(View v){
+        startActivity(new Intent(this, HomeActivity.class));
+
     }
 }
