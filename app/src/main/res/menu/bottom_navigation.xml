@@ -3,7 +3,7 @@
     <item
         android:id="@+id/inicio"
         android:icon="@drawable/baseline_insert_drive_file_24"
-        android:title="Mis informes"/>
+        android:title="Informes"/>
     <item
         android:id="@+id/citas"
         android:icon="@drawable/baseline_calendar_month_24"

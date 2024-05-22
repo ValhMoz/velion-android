@@ -2,32 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
 
-    <!-- Título de la pantalla -->
-    <TextView
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Comprar Citas"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:padding="16dp"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Tienda"
+        app:titleTextColor="@android:color/white">
 
-    <!-- Botón para comprar cita individual -->
-    <Button
-        android:id="@+id/buttonComprarCitaIndividual"
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <!-- Lista de citas -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Comprar Cita Individual"
-        android:layout_marginTop="16dp"/>
+        android:layout_height="wrap_content">
 
-    <!-- Botón para comprar bono de citas -->
-    <Button
-        android:id="@+id/buttonComprarBonoCitas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Comprar Bono de Citas"
-        android:layout_marginTop="16dp"/>
+        <!-- RecyclerView para mostrar la lista de informes médicos -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewReports"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="16dp"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/item_appointment" />
 
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>
