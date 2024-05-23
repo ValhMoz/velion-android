@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <!-- Spinner para seleccionar especialidad médica -->
+    <Spinner
+        android:id="@+id/spinnerSpecialties"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"/>
+
+    <!-- RecyclerView para mostrar la lista de doctores -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewDoctors"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        tools:listitem="@layout/doctor_item"
+        android:layout_margin="16dp"/>
+
+    <!-- Título para las citas disponibles -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Citas Disponibles"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <!-- RecyclerView para mostrar la lista de citas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAppointments"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        tools:listitem="@layout/new_appointment_item"
+        android:layout_margin="16dp"/>
+
+</LinearLayout>

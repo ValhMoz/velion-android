@@ -1,15 +1,10 @@
 package com.sfr.clinic_app.citas.view;
 
-import com.sfr.clinic_app.citas.presenter.CitasPresenter;
-
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.sfr.clinic_app.databinding.FragmentCitasBinding;
 import com.sfr.clinic_app.di.appComponent.AppComponent;
 import com.sfr.clinic_app.di.appComponent.DaggerAppComponent;

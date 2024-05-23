@@ -31,7 +31,7 @@
             android:clipToPadding="false"
             android:padding="16dp"
             android:scrollbars="vertical"
-            tools:listitem="@layout/item_appointment" />
+            tools:listitem="@layout/item_article" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>
