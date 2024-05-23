@@ -14,8 +14,7 @@
         android:background="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Informes Médicos"
-        app:titleTextColor="@android:color/white"
-        app:menu="@menu/toolbar_medicalreports">
+        app:titleTextColor="@android:color/white">
     </com.google.android.material.appbar.MaterialToolbar>
 
     <!-- Campo de búsqueda -->

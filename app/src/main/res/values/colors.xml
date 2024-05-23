@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#33d5d8</color>
+    <color name="colorPrimaryVariant">#2bb0b1</color>
+    <color name="colorSecondary">#f4a261</color>
+    <color name="colorSecondaryVariant">#e76f51</color>
+    <color name="colorBackground">#ffffff</color>
+    <color name="colorSurface">#f0f0f0</color>
+    <color name="colorPrimaryText">#000000</color>
+    <color name="colorSecondaryText">#666666</color>
+    <color name="colorStatusBar">#2bb0b1</color>
+    <color name="colorNavigationBar">#33d5d8</color>
+    <color name="colorOnPrimary">#ffffff</color>
 </resources>
