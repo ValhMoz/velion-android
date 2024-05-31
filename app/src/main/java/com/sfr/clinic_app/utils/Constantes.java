@@ -1,15 +1,10 @@
 package com.sfr.clinic_app.utils;
 
 public class Constantes {
-    public static final String SERVER_URL = "https://jsonplaceholder.typicode.com/";
-    public static final String GET_USERS = "users/";
-    public static final String GET_ALBUMS = "albums/";
-    public static final String GET_PHOTOS = "photos/";
-    public static final String GET_POSTS = "posts/";
-    public static final String GET_TODOS = "todos/";
-    public static final String GET_COMMENTS = "comments/";
-    public static final String UPDATE_POST = "posts/{id}";
-    public static final String CREATE_POST = "posts/";
-
+    public static final String SERVER_URL = "http://192.168.1.47/api/";
+    public static final String GET_USERS = "users/1";
+    public static final String GET_INFORMES = "informes/1";
+    public static final String GET_PRODUCTOS = "productos";
+    public static final String GET_CITAS = "citas/1";
 
 }

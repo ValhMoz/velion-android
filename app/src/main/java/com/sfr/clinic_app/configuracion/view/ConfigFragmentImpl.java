@@ -1,5 +1,6 @@
 package com.sfr.clinic_app.configuracion.view;
 
+import com.sfr.clinic_app.api.Models.User;
 import com.sfr.clinic_app.configuracion.presenter.ConfigPresenter;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,9 @@ import com.sfr.clinic_app.di.appComponent.DaggerAppComponent;
 import com.sfr.clinic_app.di.appModule.AppModule;
 import com.sfr.clinic_app.di.appModule.ConnectionModule;
 import com.sfr.clinic_app.di.appModule.SharedPreferencesModule;
+
+import java.util.ArrayList;
+
 import javax.inject.Inject;
 
 public class ConfigFragmentImpl extends Fragment implements ConfigFragment {
@@ -54,4 +58,8 @@ public class ConfigFragmentImpl extends Fragment implements ConfigFragment {
         appComponent.inject(this);
     }
 
+    @Override
+    public void showUsers(ArrayList<User> users) {
+
+    }
 }

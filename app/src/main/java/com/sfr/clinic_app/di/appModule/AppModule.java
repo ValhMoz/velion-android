@@ -3,6 +3,8 @@ package com.sfr.clinic_app.di.appModule;
 import android.content.Context;
 import androidx.annotation.Nullable;
 
+import com.sfr.clinic_app.citas.interactor.CitasInteractor;
+import com.sfr.clinic_app.citas.interactor.CitasInteractorImpl;
 import com.sfr.clinic_app.citas.presenter.CitasPresenter;
 import com.sfr.clinic_app.citas.presenter.CitasPresenterImpl;
 import com.sfr.clinic_app.citas.view.CitasFragment;
@@ -14,6 +16,7 @@ import com.sfr.clinic_app.configuracion.presenter.ConfigPresenterImpl;
 import com.sfr.clinic_app.configuracion.view.ConfigFragment;
 import com.sfr.clinic_app.configuracion.view.ConfigFragmentImpl;
 import com.sfr.clinic_app.inicio.interactor.InicioInteractor;
+import com.sfr.clinic_app.inicio.interactor.InicioInteractorImpl;
 import com.sfr.clinic_app.inicio.presenter.InicioPresenter;
 import com.sfr.clinic_app.inicio.presenter.InicioPresenterImpl;
 import com.sfr.clinic_app.inicio.view.InicioFragment;
@@ -30,6 +33,8 @@ import com.sfr.clinic_app.login.presenter.LoginPresenterImpl;
 import com.sfr.clinic_app.home.view.HomeActivity;
 import com.sfr.clinic_app.login.view.LoginActivity;
 import com.sfr.clinic_app.tienda.interactor.TiendaInteractor;
+import com.sfr.clinic_app.tienda.interactor.TiendaInteractorImpl;
+import com.sfr.clinic_app.tienda.presenter.TiendaPresenter;
 import com.sfr.clinic_app.tienda.presenter.TiendaPresenterImpl;
 import com.sfr.clinic_app.tienda.view.TiendaFragment;
 import com.sfr.clinic_app.tienda.view.TiendaFragmentImpl;
@@ -175,7 +180,7 @@ public class AppModule {
     }
 
     @Provides
-    public TiendaPresenterImpl providesTiendaPresenterImpl(TiendaPresenterImpl presenter) {
+    public TiendaPresenter providesTiendaPresenterImpl(TiendaPresenterImpl presenter) {
         return presenter;
     }
 
@@ -200,16 +205,16 @@ public class AppModule {
     }
 
     @Provides
-    public InicioInteractor providesInicioInteractorImpl(InicioInteractor interactor) {
+    public InicioInteractor providesInicioInteractorImpl(InicioInteractorImpl interactor) {
         return interactor;
     }
 
     @Provides
-    public CitasPresenter providesCitasnteractorImpl(CitasPresenterImpl interactor) {
+    public CitasInteractor providesCitasnteractorImpl(CitasInteractorImpl interactor) {
         return interactor;
     }
     @Provides
-    public TiendaInteractor providesTiendaInteractorImpl(TiendaInteractor interactor) {
+    public TiendaInteractor providesTiendaInteractorImpl(TiendaInteractorImpl interactor) {
         return interactor;
     }
     @Provides

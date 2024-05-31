@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Speciality {
 
-    @SerializedName("id")
+    @SerializedName("especialidad_id")
     private int id;
 
     @SerializedName("name")

@@ -1,5 +1,8 @@
 package com.sfr.clinic_app.api.wsApi;
 
+import com.sfr.clinic_app.api.Models.Appointment;
+import com.sfr.clinic_app.api.Models.MedicalReport;
+import com.sfr.clinic_app.api.Models.Product;
 import com.sfr.clinic_app.api.Models.User;
 import com.sfr.clinic_app.utils.Constantes;
 import java.util.List;
@@ -16,5 +19,13 @@ public interface WsApi {
     @GET(Constantes.GET_USERS)
     Call<List<User>> getAllUsers();
 
+    @GET(Constantes.GET_PRODUCTOS)
+    Call<List<Product>> getAllProducts();
+
+    @GET(Constantes.GET_INFORMES)
+    Call<List<MedicalReport>> getAllReports();
+
+    @GET(Constantes.GET_CITAS)
+    Call<List<Appointment>> getAllAppoinments();
 
 }

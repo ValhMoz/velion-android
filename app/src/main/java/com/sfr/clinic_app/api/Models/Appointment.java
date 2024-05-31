@@ -4,16 +4,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Appointment {
 
-    @SerializedName("id")
+    @SerializedName("cita_id")
     private int id;
 
     @SerializedName("date")
     private String date;
 
-    @SerializedName("user_id")
+    @SerializedName("usuario_id")
     private int userId;
 
-    @SerializedName("doctor_id")
+    @SerializedName("fisioterapeuta_id")
     private int doctorId;
 
     @SerializedName("description")
