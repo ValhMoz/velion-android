@@ -3,7 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/rounded_background"
+    android:elevation="4dp"
+    android:layout_marginBottom="8dp">
 
     <!-- Información del bono o cita -->
     <TextView
@@ -20,13 +23,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start"
+        android:gravity="center_vertical"
         android:layout_marginBottom="8dp">
 
         <!-- Icono de precio -->
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/priceIconImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_shopping_cart_24"
             android:layout_marginEnd="8dp"/>
 
         <!-- Precio del bono o cita -->
@@ -38,6 +43,17 @@
             android:textSize="16sp"/>
 
     </LinearLayout>
+
+    <!-- Campo adicional: descripción -->
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción del Bono/Cita"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Campo adicional: fecha -->
 
     <!-- Botón para comprar el bono o cita -->
     <Button

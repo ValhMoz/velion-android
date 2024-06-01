@@ -66,6 +66,7 @@ public class TiendaAdapter extends RecyclerView.Adapter<TiendaAdapter.TiendaView
         public void bind(Product product) {
             binding.purchaseInfoTextView.setText(product.getNombre());
             binding.purchasePriceTextView.setText(product.getMonto()+"€");
+            binding.descriptionTextView.setText(product.getDescripcion());
         }
     }
 }

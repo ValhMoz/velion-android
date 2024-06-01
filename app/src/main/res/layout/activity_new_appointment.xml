@@ -35,7 +35,7 @@
         android:id="@+id/recyclerViewAppointments"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        tools:listitem="@layout/new_appointment_item"
+        tools:listitem="@layout/item_appointment"
         android:layout_margin="16dp"/>
 
 </LinearLayout>
