@@ -66,7 +66,7 @@ public class CitasAdapter extends RecyclerView.Adapter<CitasAdapter.CitasViewHol
         }
 
         public void bind(Appointment appointment) {
-            binding.textTitle.setText(appointment.getUserId());
+//            binding.textTitle.setText(appointment.);
             binding.textDate.setText(appointment.getDate());
             binding.textDescription.setText(appointment.getDescription());
         }

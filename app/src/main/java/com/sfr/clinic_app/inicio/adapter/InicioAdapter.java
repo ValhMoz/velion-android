@@ -66,9 +66,9 @@ public class InicioAdapter extends RecyclerView.Adapter<InicioAdapter.InicioView
         }
 
         public void bind(MedicalReport report) {
-            binding.textTitle.setText(report.getTitle());
+            binding.textTitle.setText(report.getEspecialidad());
             binding.textDate.setText(report.getDate());
-            binding.textDescription.setText(report.getDescription());
+            binding.textDescription.setText(report.getDiagnostico());
         }
     }
 }

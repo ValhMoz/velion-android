@@ -36,7 +36,7 @@ public class TiendaPresenterImpl implements TiendaPresenter, TiendaInteractor.On
 
     @Override
     public void onErrorCallBacks(int code) {
-        //Log.e("respuesta erronea", ""+code);
+        Log.e("respuesta erronea", ""+code);
 
     }
 

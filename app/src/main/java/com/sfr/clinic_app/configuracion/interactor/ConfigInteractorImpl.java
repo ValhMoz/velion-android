@@ -1,5 +1,7 @@
 package com.sfr.clinic_app.configuracion.interactor;
 
+import android.util.Log;
+
 import com.sfr.clinic_app.api.Models.Product;
 import com.sfr.clinic_app.api.Models.User;
 import com.sfr.clinic_app.api.wsApi.WsApi;
@@ -24,19 +26,20 @@ public class ConfigInteractorImpl implements ConfigInteractor{
 
     @Override
     public void getUsersFromApi(OnGetUsersCallBacks callBacks, OnErrorServer errorServer) {
-        wsApi.getAllUsers().enqueue(new Callback<List<User>>() {
+        wsApi.getAllUsers().enqueue(new Callback<User>() {
 
             @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+            public void onResponse(Call<User> call, Response<User> response) {
                 if(response.isSuccessful()){
-                    callBacks.onSuccessCallBacks(new ArrayList<User>(response.body()));
+                    Log.i("config", "");
+                    callBacks.onSuccessCallBacks(response.body());
                 }else{
                     callBacks.onErrorCallBacks(response.code());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 errorServer.errorServerMessage(Arrays.toString(t.getStackTrace()));
             }
         });

@@ -1,26 +1,45 @@
 package com.sfr.clinic_app.api.Models;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class MedicalReport {
 
     @SerializedName("historial_id")
+    @Expose
     private int id;
 
     @SerializedName("title")
+    @Expose
     private String title;
 
-    @SerializedName("date")
+    @SerializedName("historial_fecha")
+    @Expose
     private String date;
 
-    @SerializedName("description")
+    @SerializedName("historial_description")
+    @Expose
     private String description;
 
-    @SerializedName("user_id")
-    private int userId;
+    @SerializedName("historial_diagnostico")
+    @Expose
+    private String diagnostico;
 
-    @SerializedName("doctor_id")
-    private int doctorId;
+    @SerializedName("historial_tratamiento")
+    @Expose
+    private String tratamiento;
+
+    @SerializedName("historial_notas")
+    @Expose
+    private String notas;
+
+    @SerializedName("especialidad")
+    @Expose
+    private String especialidad;
+
+    @SerializedName("paciente_id")
+    @Expose
+    private int userId;
 
     // Getters and Setters
     public int getId() {
@@ -63,11 +82,35 @@ public class MedicalReport {
         this.userId = userId;
     }
 
-    public int getDoctorId() {
-        return doctorId;
+    public String getDiagnostico() {
+        return diagnostico;
     }
 
-    public void setDoctorId(int doctorId) {
-        this.doctorId = doctorId;
+    public void setDiagnostico(String diagnostico) {
+        this.diagnostico = diagnostico;
+    }
+
+    public String getTratamiento() {
+        return tratamiento;
+    }
+
+    public void setTratamiento(String tratamiento) {
+        this.tratamiento = tratamiento;
+    }
+
+    public String getNotas() {
+        return notas;
+    }
+
+    public void setNotas(String notas) {
+        this.notas = notas;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
     }
 }

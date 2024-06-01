@@ -1,22 +1,28 @@
 package com.sfr.clinic_app.api.Models;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Appointment {
 
     @SerializedName("cita_id")
+    @Expose
     private int id;
 
-    @SerializedName("date")
+    @SerializedName("fecha_hora")
+    @Expose
     private String date;
 
-    @SerializedName("usuario_id")
+    @SerializedName("paciente_id")
+    @Expose
     private int userId;
 
     @SerializedName("fisioterapeuta_id")
+    @Expose
     private int doctorId;
 
-    @SerializedName("description")
+    @SerializedName("descripcion")
+    @Expose
     private String description;
 
     // Getters and Setters

@@ -1,5 +1,7 @@
 package com.sfr.clinic_app.tienda.interactor;
 
+import android.util.Log;
+
 import com.sfr.clinic_app.api.Models.Product;
 import com.sfr.clinic_app.api.wsApi.WsApi;
 import java.util.ArrayList;

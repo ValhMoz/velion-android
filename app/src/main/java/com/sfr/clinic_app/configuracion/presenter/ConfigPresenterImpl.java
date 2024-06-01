@@ -24,8 +24,8 @@ public class ConfigPresenterImpl implements ConfigPresenter, ConfigInteractor.On
 
 
     @Override
-    public void onSuccessCallBacks(ArrayList<User> users) {
-        configFragment.showUsers(users);
+    public void onSuccessCallBacks(User user) {
+        configFragment.showUsers(user);
 
     }
 

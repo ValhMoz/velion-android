@@ -1,37 +1,60 @@
 package com.sfr.clinic_app.api.Models;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
 
     @SerializedName("usuario_id")
+    @Expose
     private int id;
 
-    @SerializedName("name")
+    @SerializedName("nombre")
+    @Expose
     private String name;
 
-    @SerializedName("surname")
+    @SerializedName("apellidos")
+    @Expose
     private String surname;
 
-    @SerializedName("dni")
-    private String dni;
+    @SerializedName("email")
+    @Expose
+    private String email;
 
-    @SerializedName("birthdate")
+    @SerializedName("fecha_nacimiento")
+    @Expose
     private String birthdate;
 
-    @SerializedName("address")
+    @SerializedName("direccion")
+    @Expose
     private String address;
 
-    @SerializedName("province")
+    @SerializedName("provincia")
+    @Expose
     private String province;
 
-    @SerializedName("city")
+    @SerializedName("municipio")
+    @Expose
     private String city;
 
-    @SerializedName("postal_code")
+    @SerializedName("cp")
+    @Expose
     private String postalCode;
 
-    @SerializedName("password")
+    @SerializedName("telefono")
+    @Expose
+    private String phone;
+
+    @SerializedName("genero")
+    @Expose
+    private String gender;
+
+    @SerializedName("sesiones_disponibles")
+    @Expose
+    private String sesiones_disponibles;
+
+    @SerializedName("pass")
+    @Expose
     private String password;
 
     // Getters and Setters
@@ -57,14 +80,6 @@ public class User {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
     }
 
     public String getBirthdate() {
@@ -113,6 +128,38 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getSesiones_disponibles() {
+        return sesiones_disponibles;
+    }
+
+    public void setSesiones_disponibles(String sesiones_disponibles) {
+        this.sesiones_disponibles = sesiones_disponibles;
     }
 }
 

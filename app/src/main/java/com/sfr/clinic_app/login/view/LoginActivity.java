@@ -2,6 +2,7 @@ package com.sfr.clinic_app.login.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,15 +26,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Log.i("info2", "entrando en loginpage");
         initInjection();
-       /* binding.buttonLogin.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                String username = Objects.requireNonNull(binding.editTextUsername.getText()).toString();
-                String password = Objects.requireNonNull(binding.editTextPassword.getText()).toString();
-                ;                presenter.checkCredentials(username, password);
-            }
-        });*/
     }
     private void initInjection() {
         AppComponent appComponent = DaggerAppComponent.builder()
@@ -64,6 +58,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     public void functioniniciar(View v){
         startActivity(new Intent(this, HomeActivity.class));
+//        String username = Objects.requireNonNull(binding.editTextUsername.getText()).toString();
+//        String password = Objects.requireNonNull(binding.editTextPassword.getText()).toString();
+//        presenter.checkCredentials(username, password);
 
     }
 }

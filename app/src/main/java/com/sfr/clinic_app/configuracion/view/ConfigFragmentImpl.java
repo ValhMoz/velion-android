@@ -4,6 +4,8 @@ import com.sfr.clinic_app.api.Models.User;
 import com.sfr.clinic_app.configuracion.presenter.ConfigPresenter;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +47,7 @@ public class ConfigFragmentImpl extends Fragment implements ConfigFragment {
         binding = FragmentConfiguracionBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         initInjection();
+        configPresenter.onUsersFetched();
 
         return view;
     }
@@ -59,7 +62,16 @@ public class ConfigFragmentImpl extends Fragment implements ConfigFragment {
     }
 
     @Override
-    public void showUsers(ArrayList<User> users) {
+    public void showUsers(User user) {
+        binding.textViewUsername.setText(user.getName());
+        binding.textViewFullName.setText(String.format("%s %s", user.getName(), user.getSurname()));
+        binding.textViewDNI.setText(user.getId());
+        binding.textViewAddress.setText(user.getAddress());
+        binding.textViewEmail.setText(user.getEmail());
+        binding.textViewPhone.setText(user.getPhone());
+        binding.textViewBirthDate.setText(user.getBirthdate());
+        binding.textViewGender.setText(user.getGender());
+
 
     }
 }

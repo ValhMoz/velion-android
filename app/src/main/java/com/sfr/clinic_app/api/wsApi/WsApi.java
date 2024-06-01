@@ -17,7 +17,7 @@ import retrofit2.http.Query;
 
 public interface WsApi {
     @GET(Constantes.GET_USERS)
-    Call<List<User>> getAllUsers();
+    Call<User> getAllUsers();
 
     @GET(Constantes.GET_PRODUCTOS)
     Call<List<Product>> getAllProducts();
@@ -27,5 +27,9 @@ public interface WsApi {
 
     @GET(Constantes.GET_CITAS)
     Call<List<Appointment>> getAllAppoinments();
+
+    @FormUrlEncoded
+    @POST(Constantes.LOGIN_URL)
+    Call<List<User>> login(@Field("email") String email, @Field("pass") String password);
 
 }

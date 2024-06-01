@@ -10,7 +10,7 @@ public interface ConfigInteractor {
     void getUsersFromApi(ConfigInteractor.OnGetUsersCallBacks callBacks, ConfigInteractor.OnErrorServer errorServer);
 
     interface OnGetUsersCallBacks {
-        void onSuccessCallBacks(ArrayList<User> users);
+        void onSuccessCallBacks(User user);
         void onErrorCallBacks(int code);
     }
 
