@@ -10,7 +10,7 @@ import com.sfr.clinic_app.main.view.MainView;
 import com.sfr.clinic_app.login.interactor.LoginInteractor;
 import com.sfr.clinic_app.login.view.LoginView;
 
-import java.util.ArrayList;
+import java.util.Objects;
 
 import javax.inject.Inject;
 public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGetLoginCallBacks, LoginInteractor.OnErrorServer {
@@ -30,11 +30,8 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
     @Inject
     public LoginPresenterImpl() {}
 
-    private String username;
-
     @Override
     public void checkCredentials(String username, String password) {
-        this.username = username;
         if (!username.isEmpty() && !password.isEmpty()) {
             interactor.checkCredentials(username, password, this, this);
         } else {
@@ -42,9 +39,11 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
         }
     }
 
-    public void guardarDatosSesion(String username, String password) {
+    public void guardarDatosSesion(String username, String password, String id) {
         sharedPreferences.edit().putString("username", username).apply();
         sharedPreferences.edit().putString("password", password).apply();
+        sharedPreferences.edit().putString("usuario_id", id).apply();
+
     }
 
     public void obtenerCredenciales() {
@@ -55,18 +54,19 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
     }
 
     @Override
-    public void onSuccessCallBacks(ArrayList<User> users) {
-//        Log.i("info", ""+users);
-//        if (user.getEmail() == username) {
-            //guardarDatosSesion(user.getEmail(), user.getPassword());
+    public void onSuccessCallBacks(User user, String password) {
+        if (user.getMessage() == null ) {
+            guardarDatosSesion(user.getEmail(), password, user.getId());
             if (loginview != null){
                 loginview.onLoginCheck("Loggeado correctamente", true);
             } else {
-                mainview.onReedirigiraHomeActivity();
+                 mainview.onReedirigiraHomeActivity();
             }
-//        } else {
-//            loginview.onLoginCheck("Error al loggearse", false);
-//        }
+        } else if (loginview != null) {
+            loginview.onLoginCheck("Credenciales incorrectas", false);
+        } else {
+            mainview.onReedirigiraLoginActivity();
+        }
 
     }
 
@@ -81,6 +81,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
 
     @Override
     public void errorServerMessage(String message) {
+        loginview.onLoginCheck("error", false);
 
     }
 }

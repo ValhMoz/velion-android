@@ -16,5 +16,7 @@ public interface InicioInteractor {
         void errorServerMessage(String message);
     }
 
+    void downloadAndSaveFile(int id);
+
 
 }

@@ -1,5 +1,7 @@
 package com.sfr.clinic_app.citas.interactor;
 
+import android.content.SharedPreferences;
+
 import com.sfr.clinic_app.api.Models.Appointment;
 import com.sfr.clinic_app.api.wsApi.WsApi;
 import java.util.ArrayList;
@@ -16,11 +18,16 @@ public class CitasInteractorImpl implements CitasInteractor{
     WsApi wsApi;
 
     @Inject
+    SharedPreferences sharedPreferences;
+
+    @Inject
     public CitasInteractorImpl() {}
 
     @Override
     public void getAppointmentsFromApi(OnGetAppointmentsCallBacks callBacks, OnErrorServer errorServer) {
-        wsApi.getAllAppoinments().enqueue(new Callback<List<Appointment>>() {
+        String userid = sharedPreferences.getString("usuario_id", null);
+
+        wsApi.getAllAppoinmentsByUserId(userid).enqueue(new Callback<List<Appointment>>() {
 
             @Override
             public void onResponse(Call<List<Appointment>> call, Response<List<Appointment>> response) {

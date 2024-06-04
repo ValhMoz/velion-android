@@ -27,6 +27,11 @@ public class InicioPresenterImpl implements InicioPresenter, InicioInteractor.On
     }
 
     @Override
+    public void downloadAndSaveFile(int id) {
+        inicioInteractor.downloadAndSaveFile(id);
+    }
+
+    @Override
     public void onSuccessCallBacks(ArrayList<MedicalReport> reports) {
         inicioview.showReports(reports);
     }

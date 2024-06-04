@@ -5,5 +5,5 @@ import com.sfr.clinic_app.api.Models.User;
 import java.util.ArrayList;
 
 public interface ConfigFragment {
-    void showUsers(User user);
+    void showUsers(ArrayList<User> user);
 }

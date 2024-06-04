@@ -7,7 +7,7 @@ public class User {
 
     @SerializedName("usuario_id")
     @Expose
-    private int id;
+    private String id;
 
     @SerializedName("nombre")
     @Expose
@@ -57,12 +57,17 @@ public class User {
     @Expose
     private String password;
 
+    @SerializedName("message")
+    @Expose
+    private String message;
+
+
     // Getters and Setters
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -160,6 +165,14 @@ public class User {
 
     public void setSesiones_disponibles(String sesiones_disponibles) {
         this.sesiones_disponibles = sesiones_disponibles;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
 

@@ -1,5 +1,7 @@
 package com.sfr.clinic_app.configuracion.presenter;
 
+import android.util.Log;
+
 import com.sfr.clinic_app.api.Models.User;
 import com.sfr.clinic_app.configuracion.interactor.ConfigInteractor;
 import com.sfr.clinic_app.configuracion.view.ConfigFragment;
@@ -24,7 +26,7 @@ public class ConfigPresenterImpl implements ConfigPresenter, ConfigInteractor.On
 
 
     @Override
-    public void onSuccessCallBacks(User user) {
+    public void onSuccessCallBacks(ArrayList<User> user) {
         configFragment.showUsers(user);
 
     }

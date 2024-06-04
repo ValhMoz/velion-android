@@ -1,13 +1,21 @@
 package com.sfr.clinic_app.inicio.view;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.Manifest;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.sfr.clinic_app.api.Models.MedicalReport;
 import com.sfr.clinic_app.databinding.FragmentInicioBinding;
 import com.sfr.clinic_app.di.appComponent.AppComponent;
@@ -30,6 +38,8 @@ public class InicioFragmentImpl extends Fragment implements InicioFragment, Inic
     private RecyclerView recyclerView;
     private InicioAdapter adapter;
     private FragmentInicioBinding binding;
+    private static final int REQUEST_WRITE_PERMISSION = 786;
+
     @Inject
     InicioPresenter inicioPresenter;
 
@@ -59,8 +69,25 @@ public class InicioFragmentImpl extends Fragment implements InicioFragment, Inic
 
         showLoading();
         inicioPresenter.onReportsFetched();
+
+
         return view;
     }
+
+/*    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_WRITE_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permiso concedido, iniciar descarga
+                showLoading();
+                inicioPresenter.onReportsFetched();
+            } else {
+                // Permiso denegado, manejar el caso según corresponda
+                Log.e("Permission", "Write External Storage permission denied");
+            }
+        }
+    }*/
 
     private void initInjection() {
         AppComponent appComponent = DaggerAppComponent.builder()
@@ -103,6 +130,11 @@ public class InicioFragmentImpl extends Fragment implements InicioFragment, Inic
 
     @Override
     public void onItemClick(MedicalReport report) {
+ /*       if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_PERMISSION);
+        } else {
+            inicioPresenter.downloadAndSaveFile(report.getId());
+        }*/
 
     }
 }
