@@ -31,5 +31,11 @@
         <item name="backgroundTint">@color/colorPrimary</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
     <style name="Theme.Practicas_signlab" parent="Base.Theme.Practicas_signlab" />
+
 </resources>

@@ -37,10 +37,23 @@
                 android:clipToPadding="false"
                 android:padding="16dp"
                 android:scrollbars="vertical"
-                tools:listitem="@layout/item_appointment" />
+                tools:listitem="@layout/item_appointment" >
+
+            </androidx.recyclerview.widget.RecyclerView>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_add"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:backgroundTint="?attr/colorPrimary"
+        android:src="@android:drawable/ic_menu_add"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -50,4 +63,5 @@
         android:layout_gravity="center"
         android:visibility="gone"
         tools:visibility="visible" />
+
 </FrameLayout>

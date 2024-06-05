@@ -76,7 +76,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
     @Override
     public void onErrorCallBacks(int code) {
         if (loginview !=null) {
-            loginview.onLoginCheck("Error al loggearse", false);
+            loginview.onLoginCheck("Error "+code, false);
         }else{
             mainview.onReedirigiraLoginActivity();
         }
@@ -85,8 +85,8 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
     @Override
     public void errorServerMessage(String message) {
         if (loginview !=null) {
-            loginview.onLoginCheck("Error al loggearse", false);
-        }else{
+            loginview.onLoginCheck(message, false);
+        } else {
             mainview.onReedirigiraLoginActivity();
         }
 
