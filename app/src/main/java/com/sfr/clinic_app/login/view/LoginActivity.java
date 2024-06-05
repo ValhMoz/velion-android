@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             finish();
         } else {
             // Mostrar un mensaje de error al usuario o realizar alguna otra acción
-            Toast.makeText(this, "Error: credenciales incorrectas", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ""+mensaje, Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         String username = Objects.requireNonNull(binding.editTextUsername.getText()).toString();
         String password = Objects.requireNonNull(binding.editTextPassword.getText()).toString();
         presenter.checkCredentials(username, password);
+
 
     }
 }

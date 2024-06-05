@@ -34,8 +34,11 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
     public void checkCredentials(String username, String password) {
         if (!username.isEmpty() && !password.isEmpty()) {
             interactor.checkCredentials(username, password, this, this);
+        } else if (loginview != null) {
+            loginview.onLoginCheck("Por favor, complete todos los campos", false);
         } else {
             mainview.onReedirigiraLoginActivity();
+
         }
     }
 
