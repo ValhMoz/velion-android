@@ -156,6 +156,20 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:hint="Email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayoutPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -174,6 +188,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Registrarse"
+                android:onClick="onRegister"
+                android:layout_marginTop="16dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonGoBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="onGoBack"
+                android:onClick="onRegister"
                 android:layout_marginTop="16dp"/>
         </LinearLayout>
     </ScrollView>

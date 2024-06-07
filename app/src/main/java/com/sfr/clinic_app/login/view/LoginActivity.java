@@ -47,6 +47,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     }
 
+    @Override
+    public void onReedirigirALogin() {
+
+    }
+
     public void onGoRegisterActivity(View v){
         startActivity(new Intent(this, RegisterActivity.class));
     }
@@ -56,11 +61,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     public void functioniniciar(View v){
-//        startActivity(new Intent(this, HomeActivity.class));
         String username = Objects.requireNonNull(binding.editTextUsername.getText()).toString();
         String password = Objects.requireNonNull(binding.editTextPassword.getText()).toString();
         presenter.checkCredentials(username, password);
-
 
     }
 }

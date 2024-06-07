@@ -3,6 +3,8 @@ package com.sfr.clinic_app.login.interactor;
 import com.sfr.clinic_app.api.Models.User;
 import com.sfr.clinic_app.api.wsApi.WsApi;
 import javax.inject.Inject;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,5 +34,47 @@ public class LoginInteractorImpl implements LoginInteractor {
                 errorServer.errorServerMessage(t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void register(String nombre, String apellidos, String usuario_id, String telefono, String direccion, String provincia, String municipio, String cp, String email, String pass, String fecha_nacimient, String rol, OnGetRegisterCallBacks callBacks, OnErrorServer errorServer ) {
+        wsApi.register(nombre, apellidos, usuario_id, telefono, email, pass, direccion, provincia, municipio, cp, fecha_nacimient, rol).enqueue(new Callback<ResponseBody>() {
+
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    callBacks.onSuccessCallBacks(response.body());
+                }else{
+                    callBacks.onErrorCallBacks(response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                errorServer.errorServerMessage(t.getMessage());
+
+            }
+        });
+    }
+
+    @Override
+    public void resetpass(String email, OnGetRecoverPassCallBacks callBacks, OnErrorServer errorServer) {
+        wsApi.resetPass(email).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    callBacks.onSuccessCallBacks(response.body());
+                }else{
+                    callBacks.onErrorCallBacks(response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                errorServer.errorServerMessage(t.getMessage());
+
+            }
+        });
+
     }
 }

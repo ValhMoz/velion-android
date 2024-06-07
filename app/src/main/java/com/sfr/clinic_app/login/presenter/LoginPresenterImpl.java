@@ -1,22 +1,32 @@
 package com.sfr.clinic_app.login.presenter;
 
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.sfr.clinic_app.api.Models.User;
+import com.sfr.clinic_app.login.view.RecoverActivity;
+import com.sfr.clinic_app.login.view.RegisterActivity;
 import com.sfr.clinic_app.main.view.MainView;
 import com.sfr.clinic_app.login.interactor.LoginInteractor;
 import com.sfr.clinic_app.login.view.LoginView;
 
-import java.util.Objects;
-
 import javax.inject.Inject;
-public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGetLoginCallBacks, LoginInteractor.OnErrorServer {
+
+import okhttp3.ResponseBody;
+
+public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGetLoginCallBacks, LoginInteractor.OnErrorServer, LoginInteractor.OnGetRegisterCallBacks, LoginInteractor.OnGetRecoverPassCallBacks {
     @Nullable
     @Inject
     LoginView loginview;
+
+    @Nullable
+    @Inject
+    RegisterActivity registerActivity;
+
+    @Nullable
+    @Inject
+    RecoverActivity recoverActivity;
 
     @Nullable
     @Inject
@@ -57,6 +67,16 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
     }
 
     @Override
+    public void register(String nombre, String apellidos, String usuario_id, String telefono, String direccion, String provincia, String municipio, String cp, String email, String pass, String fecha_nacimiento, String rol) {
+        interactor.register(nombre, apellidos, fecha_nacimiento, usuario_id, direccion, provincia, municipio, cp, email, pass, rol, telefono, this, this);
+    }
+
+    @Override
+    public void resetpass(String email) {
+        interactor.resetpass(email, this, this);
+    }
+
+    @Override
     public void onSuccessCallBacks(User user, String password) {
         if (user.getMessage() == null ) {
             guardarDatosSesion(user.getEmail(), password, user.getId());
@@ -69,6 +89,17 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
             loginview.onLoginCheck("Credenciales incorrectas", false);
         } else {
             mainview.onReedirigiraLoginActivity();
+        }
+
+    }
+
+    @Override
+    public void onSuccessCallBacks(ResponseBody responseBody) {
+        if (registerActivity != null) {
+            registerActivity.onReedirigirALogin();
+
+        }else{
+            recoverActivity.onReedirigirALogin();
         }
 
     }

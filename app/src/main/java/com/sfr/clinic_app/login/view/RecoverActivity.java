@@ -46,7 +46,19 @@ public class RecoverActivity extends AppCompatActivity implements LoginView {
 
     }
 
+    @Override
+    public void onReedirigirALogin() {
+        startActivity(new Intent(RecoverActivity.this, LoginActivity.class));
+        finish();
+
+    }
+
     public void onGoBack(View v){
         finish();
     }
+
+    public void onResetPass(View v) {
+        presenter.resetpass(binding.editTextEmail.getText().toString());
+    }
+
 }

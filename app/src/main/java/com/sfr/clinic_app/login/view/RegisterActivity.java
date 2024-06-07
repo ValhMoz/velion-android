@@ -49,5 +49,30 @@ public class RegisterActivity extends AppCompatActivity implements LoginView{
     public void onGoBack(View v){
         finish();
     }
+
+    @Override
+    public void onReedirigirALogin() {
+        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+        finish();
+
+    }
+
+    public void onRegister(View v) {
+        String rol = "Paciente" ;
+        presenter.register(
+                binding.editTextName.getText().toString(),
+                binding.editTextApellidos.getText().toString(),
+                binding.editTextDireccion.getText().toString(),
+                binding.editTextDNI.getText().toString(),
+                binding.editTextDireccion.getText().toString(),
+                binding.editTextProvincia.getText().toString(),
+                binding.editTextMunicipio.getText().toString(),
+                binding.editTextCP.getText().toString(),
+                binding.editTextPhone.getText().toString(),
+                binding.editTextEmail.getText().toString(),
+                binding.editTextPass.getText().toString(),
+                rol
+        );
+    }
 }
 
