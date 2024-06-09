@@ -125,6 +125,26 @@ public class AppModule {
 
     @Nullable
     @Provides
+    public RegisterActivity registerActivity() {
+        if(recoverActivity!=null){
+            return registerActivity;
+
+        }
+        return null;
+    }
+
+    @Nullable
+    @Provides
+    public RecoverActivity recoverActivity() {
+        if(recoverActivity!=null){
+            return recoverActivity;
+
+        }
+        return null;
+    }
+
+    @Nullable
+    @Provides
     public MainView mainactivity() {
         if(mainactivity != null){
             return mainactivity;

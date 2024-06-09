@@ -195,7 +195,7 @@
                 android:id="@+id/buttonGoBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="onGoBack"
+                android:text="Volver atrás"
                 android:onClick="onRegister"
                 android:layout_marginTop="16dp"/>
         </LinearLayout>
