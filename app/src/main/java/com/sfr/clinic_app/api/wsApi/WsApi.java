@@ -44,6 +44,12 @@ public interface WsApi {
             @Field("email") String email,
             @Field("pass") String password);
 
+    @FormUrlEncoded
+    @POST(Constantes.UPDATE_USER_DATA)
+    Call<ResponseBody> updateUserData(
+            @Field("email") String email,
+            @Field("pass") String password);
+
     @GET(Constantes.RESETPASS)
     Call<ResponseBody> resetPass(@Path("email") String email);
 
@@ -51,8 +57,8 @@ public interface WsApi {
     @POST(Constantes.LOGIN_URL)
     Call<User> login(@Field("email") String email, @Field("pass") String password);
 
-    @GET("informe/{historial_id}")
+    @GET(Constantes.GET_INFORME_BY_CITAID)
     @Streaming
-    Call<ResponseBody> downloadFile(@Path("historial_id") int fileId);
+    Call<ResponseBody> downloadFile(@Path("cita_id") int fileId);
 
 }
