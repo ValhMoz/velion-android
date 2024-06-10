@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class MedicalReport {
 
-    @SerializedName("historial_id")
+    @SerializedName("cita_id")
     @Expose
     private int id;
 
@@ -13,23 +13,19 @@ public class MedicalReport {
     @Expose
     private String title;
 
-    @SerializedName("historial_fecha")
+    @SerializedName("fecha_hora")
     @Expose
     private String date;
 
-    @SerializedName("historial_description")
-    @Expose
-    private String description;
-
-    @SerializedName("historial_diagnostico")
+    @SerializedName("diagnostico")
     @Expose
     private String diagnostico;
 
-    @SerializedName("historial_tratamiento")
+    @SerializedName("tratamiento")
     @Expose
     private String tratamiento;
 
-    @SerializedName("historial_notas")
+    @SerializedName("notas")
     @Expose
     private String notas;
 
@@ -64,14 +60,6 @@ public class MedicalReport {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public int getUserId() {

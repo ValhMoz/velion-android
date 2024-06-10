@@ -1,5 +1,7 @@
 package com.sfr.clinic_app.inicio.view;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.Manifest;
@@ -15,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.sfr.clinic_app.api.Models.MedicalReport;
 import com.sfr.clinic_app.databinding.FragmentInicioBinding;
@@ -74,20 +77,20 @@ public class InicioFragmentImpl extends Fragment implements InicioFragment, Inic
         return view;
     }
 
-/*    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_WRITE_PERMISSION) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permiso concedido, iniciar descarga
-                showLoading();
-                inicioPresenter.onReportsFetched();
-            } else {
-                // Permiso denegado, manejar el caso según corresponda
-                Log.e("Permission", "Write External Storage permission denied");
-            }
-        }
-    }*/
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        if (requestCode == REQUEST_WRITE_PERMISSION) {
+//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                // Permiso concedido, iniciar descarga
+//                showLoading();
+//                inicioPresenter.onReportsFetched();
+//            } else {
+//                // Permiso denegado, manejar el caso según corresponda
+//                Log.e("Permission", "Write External Storage permission denied");
+//            }
+//        }
+//    }
 
     private void initInjection() {
         AppComponent appComponent = DaggerAppComponent.builder()
@@ -130,11 +133,26 @@ public class InicioFragmentImpl extends Fragment implements InicioFragment, Inic
 
     @Override
     public void onItemClick(MedicalReport report) {
- /*       if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_PERMISSION);
-        } else {
-            inicioPresenter.downloadAndSaveFile(report.getId());
-        }*/
+        showDialog(report);
+
+    }
+
+    private void showDialog(MedicalReport report){
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setMessage("¿Deseas descargar el informe?");
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_PERMISSION);
+                } else {
+                    inicioPresenter.downloadAndSaveFile(report.getId());
+                }
+
+            }
+        });
+
+        builder.create().show();
 
     }
 }

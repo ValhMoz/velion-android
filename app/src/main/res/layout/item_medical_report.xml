@@ -18,14 +18,30 @@
         android:textColor="@android:color/black"
         android:layout_marginBottom="4dp"/>
 
-    <TextView
-        android:id="@+id/textDate"
-        android:layout_width="wrap_content"
+    <!-- Detalles de la cita -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fecha"
-        android:textSize="14sp"
-        android:textColor="@android:color/darker_gray"
-        android:layout_marginBottom="8dp"/>
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_marginBottom="4dp">
+
+        <!-- Icono de calendario -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_my_calendar"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Fecha y hora de la cita -->
+        <TextView
+            android:id="@+id/DateTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha y Hora"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textDescription"
@@ -35,10 +51,4 @@
         android:textSize="14sp"
         android:textColor="@android:color/black"/>
 
-    <Button
-        android:id="@+id/buyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ver informe"
-        android:textColor="@android:color/white" />
 </LinearLayout>

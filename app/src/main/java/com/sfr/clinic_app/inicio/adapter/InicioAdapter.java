@@ -1,8 +1,11 @@
 package com.sfr.clinic_app.inicio.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.sfr.clinic_app.api.Models.MedicalReport;
@@ -67,7 +70,8 @@ public class InicioAdapter extends RecyclerView.Adapter<InicioAdapter.InicioView
 
         public void bind(MedicalReport report) {
             binding.textTitle.setText(report.getEspecialidad());
-            binding.textDate.setText(report.getDate());
+            binding.DateTimeTextView.setText(report.getDate());
+            Log.i("prueba", ""+report.getDate());
             binding.textDescription.setText(report.getDiagnostico());
         }
     }

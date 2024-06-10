@@ -68,13 +68,13 @@ public class ConfigFragmentImpl extends Fragment implements ConfigFragment, Swip
         hideLoading();
         for (User usuario: user){
             binding.textViewUsername.setText(usuario.getName());
-            binding.textViewFullName.setText(String.format("%s %s", usuario.getName(), usuario.getSurname()));
-            binding.textViewDNI.setText(usuario.getId());
-            binding.textViewAddress.setText(usuario.getAddress());
+//            binding.textViewFullName.setText(String.format("%s %s", usuario.getName(), usuario.getSurname()));
+//            binding.textViewDNI.setText(usuario.getId());
+//            binding.textViewAddress.setText(usuario.getAddress());
             binding.textViewEmail.setText(usuario.getEmail());
-            binding.textViewPhone.setText(usuario.getPhone());
-            binding.textViewBirthDate.setText(usuario.getBirthdate());
-            binding.textViewGender.setText(usuario.getGender());
+//            binding.textViewPhone.setText(usuario.getPhone());
+//            binding.textViewBirthDate.setText(usuario.getBirthdate());
+//            binding.textViewGender.setText(usuario.getGender());
         }
 
     }
@@ -82,21 +82,21 @@ public class ConfigFragmentImpl extends Fragment implements ConfigFragment, Swip
     private void hideLoading() {
         // Ocultar el TextView y el ProgressBar
         binding.progressBar.setVisibility(View.GONE);
-        binding.swipeRefreshLayout.setVisibility(View.VISIBLE);
+//        binding.swipeRefreshLayout.setVisibility(View.VISIBLE);
 
     }
 
     private void showLoading() {
         // Mostrar el TextView y el ProgressBar
         binding.progressBar.setVisibility(View.VISIBLE);
-        binding.swipeRefreshLayout.setVisibility(View.GONE);
+//        binding.swipeRefreshLayout.setVisibility(View.GONE);
 
     }
 
     @Override
     public void onRefresh() {
         configPresenter.onUsersFetched();
-        binding.swipeRefreshLayout.setRefreshing(false);
+//        binding.swipeRefreshLayout.setRefreshing(false);
 
 
     }

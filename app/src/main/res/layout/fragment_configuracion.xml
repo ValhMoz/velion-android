@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".YourActivity">
 
     <!-- Sección de imagen de perfil y nombre de usuario -->
     <com.google.android.material.appbar.MaterialToolbar
@@ -13,29 +14,19 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:title="Mi perfil"
+        app:title="Actualizar Perfil"
         app:titleTextColor="@android:color/white" />
 
-    <LinearLayout
-        android:id="@+id/linearlayoutvertical"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_marginTop="66dp"
-        tools:visibility="visible">
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
 
-        <!-- Contenedor de SwipeRefreshLayout -->
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeRefreshLayout"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:visibility="visible"
-            tools:visibility="visible">
+            android:layout_height="match_parent"
+            android:padding="16dp">
 
-            <!-- Contenedor para los elementos dentro del SwipeRefreshLayout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,8 +37,10 @@
                     android:id="@+id/imageViewProfile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_marginBottom="16dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/baseline_person_24" />
+                    android:src="@drawable/baseline_person_24"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/textViewUsername"
@@ -58,72 +51,58 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewFullName"
+                    android:id="@+id/textViewEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="?attr/colorSecondary"                    android:text="Correo"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editTextEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Nombre y Apellidos"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:hint="Nuevo correo electrónico"
+                    android:inputType="textEmailAddress"
+                    android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/textViewDNI"
+                <EditText
+                    android:id="@+id/editTextPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="DNI"
+                    android:hint="Nueva contraseña"
+                    android:inputType="textPassword"
                     android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/textViewAddress"
+                <EditText
+                    android:id="@+id/editTextConfirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Dirección"
+                    android:hint="Confirmar nueva contraseña"
+                    android:inputType="textPassword"
                     android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/textViewEmail"
+                <Button
+                    android:id="@+id/buttonUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Correo"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/textViewPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Teléfono"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/textViewBirthDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Fecha de Nacimiento"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/textViewGender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Género"
-                    android:textSize="16sp" />
+                    android:layout_marginTop="16dp"
+                    android:text="Actualizar"
+                    android:background="?attr/colorPrimary"
+                    android:textColor="@android:color/white" />
             </LinearLayout>
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    </LinearLayout>
+        </ScrollView>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </FrameLayout>
