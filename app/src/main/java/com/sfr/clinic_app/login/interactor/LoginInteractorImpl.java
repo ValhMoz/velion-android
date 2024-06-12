@@ -37,8 +37,8 @@ public class LoginInteractorImpl implements LoginInteractor {
     }
 
     @Override
-    public void register(String nombre, String apellidos, String usuario_id, String telefono, String direccion, String provincia, String municipio, String cp, String email, String pass, String fecha_nacimient, String rol, OnGetRegisterCallBacks callBacks, OnErrorServer errorServer ) {
-        wsApi.register(nombre, apellidos, usuario_id, telefono, email, pass, direccion, provincia, municipio, cp, fecha_nacimient, rol).enqueue(new Callback<ResponseBody>() {
+    public void register(String nombre, String apellidos, String usuario_id, String fecha_nacimiento, String direccion, String provincia, String municipio, String cp, String telefono, String email, String pass, OnGetRegisterCallBacks callBacks, OnErrorServer errorServer ) {
+        wsApi.register(nombre, apellidos, usuario_id, fecha_nacimiento, direccion, provincia, municipio, cp, telefono, email, pass).enqueue(new Callback<ResponseBody>() {
 
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

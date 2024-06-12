@@ -6,4 +6,5 @@ import java.util.ArrayList;
 
 public interface ConfigFragment {
     void showUsers(ArrayList<User> user);
+    void showUserUpdatedDataMessage();
 }

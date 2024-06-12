@@ -67,8 +67,8 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
     }
 
     @Override
-    public void register(String nombre, String apellidos, String usuario_id, String telefono, String direccion, String provincia, String municipio, String cp, String email, String pass, String fecha_nacimiento, String rol) {
-        interactor.register(nombre, apellidos, fecha_nacimiento, usuario_id, direccion, provincia, municipio, cp, email, pass, rol, telefono, this, this);
+    public void register(String nombre, String apellidos, String usuario_id, String fecha_nacimiento, String direccion, String provincia, String municipio, String cp, String telefono, String email, String pass) {
+        interactor.register(nombre, apellidos, usuario_id, fecha_nacimiento, direccion, provincia, municipio, cp, telefono, email, pass, this, this);
     }
 
     @Override
@@ -98,7 +98,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
         if (registerActivity != null) {
             registerActivity.onReedirigirALogin();
 
-        }else{
+        }else if(recoverActivity!=null){
             recoverActivity.onReedirigirALogin();
         }
 
@@ -108,8 +108,10 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
     public void onErrorCallBacks(int code) {
         if (loginview !=null) {
             loginview.onLoginCheck("Error "+code, false);
-        }else{
+        }else if (mainview!=null){
             mainview.onReedirigiraLoginActivity();
+        }else{
+            recoverActivity.onReedirigirALogin();
         }
     }
 
@@ -117,8 +119,10 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnGet
     public void errorServerMessage(String message) {
         if (loginview !=null) {
             loginview.onLoginCheck(message, false);
-        } else {
+        } else if (mainview!=null){
             mainview.onReedirigiraLoginActivity();
+        }else{
+            recoverActivity.onReedirigirALogin();
         }
 
     }

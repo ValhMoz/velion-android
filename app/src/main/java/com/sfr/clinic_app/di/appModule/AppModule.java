@@ -20,6 +20,12 @@ import com.sfr.clinic_app.inicio.interactor.InicioInteractorImpl;
 import com.sfr.clinic_app.inicio.presenter.InicioPresenter;
 import com.sfr.clinic_app.inicio.presenter.InicioPresenterImpl;
 import com.sfr.clinic_app.inicio.view.InicioFragment;
+import com.sfr.clinic_app.invoice.interactor.InvoiceInteractor;
+import com.sfr.clinic_app.invoice.interactor.InvoiceInteractorImpl;
+import com.sfr.clinic_app.invoice.presenter.InvoicePresenter;
+import com.sfr.clinic_app.invoice.presenter.InvoicePresenterImpl;
+import com.sfr.clinic_app.invoice.view.InvoiceFragment;
+import com.sfr.clinic_app.invoice.view.InvoiceFragmentImpl;
 import com.sfr.clinic_app.login.view.RecoverActivity;
 import com.sfr.clinic_app.login.view.RegisterActivity;
 import com.sfr.clinic_app.main.view.MainActivity;
@@ -51,6 +57,7 @@ public class AppModule {
     private HomeActivity homeactivity;
     private InicioFragmentImpl inicioFragment;
     private CitasFragmentImpl citasFragment;
+    private InvoiceFragmentImpl invoiceFragment;
     private TiendaFragmentImpl tiendaFragment;
     private ConfigFragmentImpl configFragment;
     private Context context;
@@ -96,6 +103,12 @@ public class AppModule {
 
     public AppModule(CitasFragmentImpl citasFragment, Context context) {
         this.citasFragment = citasFragment;
+        this.context = context;
+
+    }
+
+    public AppModule(InvoiceFragmentImpl invoiceFragment, Context context) {
+        this.invoiceFragment = invoiceFragment;
         this.context = context;
 
     }
@@ -172,6 +185,17 @@ public class AppModule {
         }
         return null;
     }
+
+    @Nullable
+    @Provides
+    public InvoiceFragment invoiceFragment() {
+        if(invoiceFragment!=null){
+            return invoiceFragment;
+
+        }
+        return null;
+    }
+
     @Nullable
     @Provides
     public TiendaFragment tiendaFragment() {
@@ -210,6 +234,11 @@ public class AppModule {
     }
 
     @Provides
+    public InvoicePresenter providesInvoicePresenterImpl(InvoicePresenterImpl presenter) {
+        return presenter;
+    }
+
+    @Provides
     public ConfigPresenter providesConfigPresenterImpl(ConfigPresenterImpl presenter) {
         return presenter;
     }
@@ -233,6 +262,12 @@ public class AppModule {
     public CitasInteractor providesCitasnteractorImpl(CitasInteractorImpl interactor) {
         return interactor;
     }
+
+    @Provides
+    public InvoiceInteractor providesInvoicenteractorImpl(InvoiceInteractorImpl interactor) {
+        return interactor;
+    }
+
     @Provides
     public TiendaInteractor providesTiendaInteractorImpl(TiendaInteractorImpl interactor) {
         return interactor;

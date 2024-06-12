@@ -1,6 +1,7 @@
 package com.sfr.clinic_app.api.wsApi;
 
 import com.sfr.clinic_app.api.Models.Appointment;
+import com.sfr.clinic_app.api.Models.Invoice;
 import com.sfr.clinic_app.api.Models.MedicalReport;
 import com.sfr.clinic_app.api.Models.Product;
 import com.sfr.clinic_app.api.Models.User;
@@ -22,6 +23,9 @@ public interface WsApi {
     @GET(Constantes.GET_PRODUCTOS)
     Call<List<Product>> getAllProducts();
 
+    @GET(Constantes.GET_INVOICES_BY_USERID)
+    Call<List<Invoice>> getAllInvoicesByUserId(@Path("usuario_id") String usuarioId);
+
     @GET(Constantes.GET_INFORMES_BY_USERID)
     Call<List<MedicalReport>> getAllReportsByUserId(@Path("usuario_id") String usuarioId);
 
@@ -35,18 +39,19 @@ public interface WsApi {
             @Field("apellidos") String apellidos,
             @Field("usuario_id") String usuario_id,
             @Field("fecha_nacimiento") String fecha_nacimiento,
+            //@Field("genero") String genero,
             @Field("direccion") String direccion,
             @Field("provincia") String provincia,
             @Field("municipio") String municipio,
             @Field("cp") String cp,
             @Field("telefono") String phone,
-            @Field("rol") String rol,
             @Field("email") String email,
             @Field("pass") String password);
 
     @FormUrlEncoded
     @POST(Constantes.UPDATE_USER_DATA)
     Call<ResponseBody> updateUserData(
+            @Field("usuario_id") String userId,
             @Field("email") String email,
             @Field("pass") String password);
 

@@ -17,6 +17,7 @@ import com.sfr.clinic_app.di.appComponent.DaggerAppComponent;
 import com.sfr.clinic_app.di.appModule.AppModule;
 import com.sfr.clinic_app.di.appModule.SharedPreferencesModule;
 import com.sfr.clinic_app.inicio.view.InicioFragmentImpl;
+import com.sfr.clinic_app.invoice.view.InvoiceFragmentImpl;
 import com.sfr.clinic_app.tienda.view.TiendaFragmentImpl;
 
 public class HomeActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
@@ -65,10 +66,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationBarView
         }
 
         if(optionMenu[2]==IdBotonPulsado) {
-            replaceFragment(new TiendaFragmentImpl());
+            replaceFragment(new InvoiceFragmentImpl());
         }
 
         if (optionMenu[3]==IdBotonPulsado) {
+            replaceFragment(new TiendaFragmentImpl());
+        }
+
+        if (optionMenu[4]==IdBotonPulsado) {
             replaceFragment(new ConfigFragmentImpl());
         }
 

@@ -26,6 +26,13 @@ public class RecoverActivity extends AppCompatActivity implements LoginView {
         setContentView(binding.getRoot());
         initInjection();
 
+        binding.buttonSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onResetPass(v);
+            }
+        });
+
     }
     private void initInjection() {
         AppComponent appComponent = DaggerAppComponent.builder()
@@ -34,6 +41,7 @@ public class RecoverActivity extends AppCompatActivity implements LoginView {
                 .build();
         appComponent.inject(this);
     }
+
     @Override
     public void onLoginCheck(String mensaje, boolean IsLoggedIn) {
         if (IsLoggedIn) {
@@ -48,8 +56,9 @@ public class RecoverActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void onReedirigirALogin() {
+        Toast.makeText(this, "Consulte su bandeja de entrada para restablecer la contraseña.", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(RecoverActivity.this, LoginActivity.class));
-        finish();
+//        finish();
 
     }
 

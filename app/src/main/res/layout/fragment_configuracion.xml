@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".YourActivity">
+    tools:context=".configuracion.view.ConfigFragmentImpl">
 
     <!-- Sección de imagen de perfil y nombre de usuario -->
     <com.google.android.material.appbar.MaterialToolbar
@@ -55,7 +55,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textColor="?attr/colorSecondary"                    android:text="Correo"
+                    android:textColor="?attr/colorSecondary"
+                    android:text="Correo"
                     android:textSize="16sp" />
 
                 <EditText
@@ -85,16 +86,24 @@
                     android:inputType="textPassword"
                     android:textSize="16sp" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Actualizar"
-                    android:background="?attr/colorPrimary"
-                    android:textColor="@android:color/white" />
+                    android:text="Actualizar"/>
             </LinearLayout>
         </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_add"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:backgroundTint="?attr/colorSecondary"
+            android:src="@drawable/iconlogout"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -104,5 +113,4 @@
             android:layout_gravity="center"
             android:visibility="gone" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 </FrameLayout>

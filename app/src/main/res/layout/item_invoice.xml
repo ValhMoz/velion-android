@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/rounded_background"
+    android:elevation="4dp"
+    android:layout_marginBottom="8dp">
+
+    <!-- Información del bono o cita -->
+    <TextView
+        android:id="@+id/purchaseInfoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Información de la Factura"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Detalles del bono o cita -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <!-- Icono de precio -->
+        <ImageView
+            android:id="@+id/priceIconImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/baseline_shopping_cart_24"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Precio del bono o cita -->
+        <TextView
+            android:id="@+id/purchasePriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+    <!-- Campo adicional: descripción -->
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción del Bono/Cita"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Campo adicional: fecha -->
+
+    <!-- Botón para comprar el bono o cita -->
+    <Button
+        android:id="@+id/buyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descargar justificante"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>
