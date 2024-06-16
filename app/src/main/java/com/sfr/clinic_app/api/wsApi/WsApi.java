@@ -55,6 +55,15 @@ public interface WsApi {
             @Field("email") String email,
             @Field("pass") String password);
 
+    @FormUrlEncoded
+    @POST(Constantes.CONFIRM_PURCHASE)
+    Call<ResponseBody> confirmPurchase(
+            @Field("usuario_id") String userId,
+            @Field("producto_id") String producto_id,
+            @Field("fecha_emision") String fecha_emision,
+            @Field("estado") String estado);
+
+
     @GET(Constantes.RESETPASS)
     Call<ResponseBody> resetPass(@Path("email") String email);
 

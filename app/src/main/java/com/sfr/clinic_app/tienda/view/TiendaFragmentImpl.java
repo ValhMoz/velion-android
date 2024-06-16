@@ -1,5 +1,6 @@
 package com.sfr.clinic_app.tienda.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -80,6 +81,11 @@ public class TiendaFragmentImpl extends Fragment implements TiendaFragment, Tien
         adapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onGoToHome() {
+
+    }
+
     private void hideLoading() {
         // Ocultar el TextView y el ProgressBar
         binding.progressBar.setVisibility(View.GONE);
@@ -103,6 +109,9 @@ public class TiendaFragmentImpl extends Fragment implements TiendaFragment, Tien
 
     @Override
     public void onItemClick(Product product) {
+        Intent intent = new Intent(requireContext(), CheckoutActivity.class);
+        intent.putExtra("product",product);
+        startActivity(intent);
 
     }
 }

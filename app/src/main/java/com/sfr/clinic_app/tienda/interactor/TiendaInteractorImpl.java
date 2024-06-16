@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.inject.Inject;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,6 +38,25 @@ public class TiendaInteractorImpl implements TiendaInteractor{
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
                 errorServer.errorServerMessage(Arrays.toString(t.getStackTrace()));
+            }
+        });
+    }
+
+    @Override
+    public void purchase(String product_id, String paciente_id, String fecha_emision, String estado, OnGetPurchaseCallBacks callBack, OnErrorServer onErrorServer) {
+        wsApi.confirmPurchase(product_id, paciente_id, fecha_emision, estado).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    callBack.onSuccessCallBacks(response.body());
+                }else{
+                    callBack.onErrorCallBacks(response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                onErrorServer.errorServerMessage(t.getMessage());
             }
         });
     }

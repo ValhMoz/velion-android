@@ -11,6 +11,7 @@ import com.sfr.clinic_app.di.appModule.AppModule;
 import com.sfr.clinic_app.di.appModule.SharedPreferencesModule;
 import com.sfr.clinic_app.home.view.HomeActivity;
 import com.sfr.clinic_app.login.view.LoginActivity;
+import com.sfr.clinic_app.tienda.view.CheckoutActivity;
 import com.sfr.clinic_app.tienda.view.TiendaFragmentImpl;
 import javax.inject.Singleton;
 import dagger.Component;
@@ -28,5 +29,6 @@ public interface AppComponent {
     void inject(TiendaFragmentImpl tiendaFragment);
     void inject(ConfigFragmentImpl configFragment);
     void inject(InvoiceFragmentImpl invoiceFragment);
+    void inject(CheckoutActivity checkoutActivity);
 
 }

@@ -42,6 +42,7 @@ import com.sfr.clinic_app.tienda.interactor.TiendaInteractor;
 import com.sfr.clinic_app.tienda.interactor.TiendaInteractorImpl;
 import com.sfr.clinic_app.tienda.presenter.TiendaPresenter;
 import com.sfr.clinic_app.tienda.presenter.TiendaPresenterImpl;
+import com.sfr.clinic_app.tienda.view.CheckoutActivity;
 import com.sfr.clinic_app.tienda.view.TiendaFragment;
 import com.sfr.clinic_app.tienda.view.TiendaFragmentImpl;
 
@@ -60,6 +61,7 @@ public class AppModule {
     private InvoiceFragmentImpl invoiceFragment;
     private TiendaFragmentImpl tiendaFragment;
     private ConfigFragmentImpl configFragment;
+    private CheckoutActivity checkoutActivity;
     private Context context;
 
 
@@ -124,6 +126,13 @@ public class AppModule {
         this.context = context;
 
     }
+
+    public AppModule(CheckoutActivity checkoutActivity, Context context) {
+        this.checkoutActivity = checkoutActivity;
+        this.context = context;
+
+    }
+
 
 
     // Un método de estos por cada vista
@@ -211,6 +220,16 @@ public class AppModule {
     public ConfigFragment configFragment() {
         if(configFragment!=null){
             return configFragment;
+
+        }
+        return null;
+    }
+
+    @Nullable
+    @Provides
+    public CheckoutActivity checkoutActivity() {
+        if(checkoutActivity!=null){
+            return checkoutActivity;
 
         }
         return null;

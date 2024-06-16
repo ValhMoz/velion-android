@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public interface TiendaFragment {
     void showProducts(ArrayList<Product> products);
+    void onGoToHome();
 
 
 }

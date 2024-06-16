@@ -33,5 +33,6 @@
         <activity android:name=".citas.view.CitasFragmentImpl"/>
         <activity android:name=".configuracion.view.ConfigFragmentImpl"/>
         <activity android:name=".tienda.view.TiendaFragmentImpl"/>
+        <activity android:name=".tienda.view.CheckoutActivity"/>
     </application>
 </manifest>
