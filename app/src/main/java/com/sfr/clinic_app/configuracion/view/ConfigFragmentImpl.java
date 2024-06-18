@@ -66,6 +66,7 @@ public class ConfigFragmentImpl extends Fragment implements ConfigFragment  {
         binding = FragmentConfiguracionBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         initInjection();
+        showLoading();
         configPresenter.onUsersFetched();
 
         binding.buttonAdd.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +97,7 @@ public class ConfigFragmentImpl extends Fragment implements ConfigFragment  {
 
     @Override
     public void showUsers(ArrayList<User> user) {
+        hideLoading();
         for (User usuario: user){
             binding.textViewUsername.setText(usuario.getName()+" "+usuario.getSurname());
             binding.textViewEmail.setText(usuario.getEmail());
@@ -130,6 +132,17 @@ public class ConfigFragmentImpl extends Fragment implements ConfigFragment  {
         builder.create().show();
 
     }
+
+    private void showLoading() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+        binding.bodylayout.setVisibility(View.INVISIBLE);
+    }
+
+    private void hideLoading() {
+        binding.progressBar.setVisibility(View.GONE);
+        binding.bodylayout.setVisibility(View.VISIBLE);
+    }
+
 
 
     public void signout(View v) {
