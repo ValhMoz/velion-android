@@ -2,15 +2,31 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#33d5d8</color>
-    <color name="colorPrimaryVariant">#2bb0b1</color>
-    <color name="colorSecondary">#f4a261</color>
-    <color name="colorSecondaryVariant">#e76f51</color>
-    <color name="colorBackground">#ffffff</color>
-    <color name="colorSurface">#f0f0f0</color>
-    <color name="colorPrimaryText">#000000</color>
-    <color name="colorSecondaryText">#666666</color>
-    <color name="colorStatusBar">#2bb0b1</color>
-    <color name="colorNavigationBar">#33d5d8</color>
-    <color name="colorOnPrimary">#ffffff</color>
+
+    <!-- Colores basados en el verde bosque -->
+    <color name="colorPrimary">#567c6e</color> <!-- Verde Bosque -->
+    <color name="colorPrimaryVariant">#405a40</color> <!-- Verde Oscuro -->
+    <color name="colorSecondary">#f4a261</color> <!-- Naranja Suave -->
+    <color name="colorSecondaryVariant">#e76f51</color> <!-- Naranja Intenso -->
+
+    <!-- Colores de fondo y superficie -->
+    <color name="colorBackground">#ffffff</color> <!-- Blanco -->
+    <color name="colorSurface">#f0f0f0</color> <!-- Gris Claro -->
+
+    <!-- Colores de texto -->
+    <color name="colorPrimaryText">#000000</color> <!-- Negro -->
+    <color name="colorSecondaryText">#666666</color> <!-- Gris Medio -->
+
+    <!-- Colores para la barra de estado y navegación -->
+    <color name="colorStatusBar">#405a40</color> <!-- Verde Oscuro -->
+    <color name="colorNavigationBar">#567c6e</color> <!-- Verde Bosque -->
+
+    <!-- Colores sobre el fondo principal -->
+    <color name="colorOnPrimary">#ffffff</color> <!-- Blanco -->
+
+    <!-- Variaciones adicionales del verde bosque -->
+    <color name="colorLight">#78a07a</color> <!-- Verde Claro -->
+    <color name="colorDark">#405a40</color> <!-- Verde Oscuro -->
+    <color name="colorAnalog1">#6e7c56</color> <!-- Verde Oliva -->
+    <color name="colorAnalog2">#567c57</color> <!-- Verde Musgo -->
 </resources>

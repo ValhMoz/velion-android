@@ -58,7 +58,7 @@ public class RecoverActivity extends AppCompatActivity implements LoginView {
     public void onReedirigirALogin() {
         Toast.makeText(this, "Consulte su bandeja de entrada para restablecer la contraseña.", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(RecoverActivity.this, LoginActivity.class));
-//        finish();
+//      finish();
 
     }
 

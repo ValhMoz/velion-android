@@ -112,5 +112,16 @@
             android:padding="16dp"
             android:textStyle="bold"
             android:elevation="4dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOnGoBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Volver Atras"
+            android:backgroundTint="?attr/colorSecondary"
+            android:padding="16dp"
+            android:textStyle="bold"
+            android:elevation="4dp"/>
     </LinearLayout>
 </ScrollView>

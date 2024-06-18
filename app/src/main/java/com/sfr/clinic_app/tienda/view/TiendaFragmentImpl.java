@@ -3,6 +3,8 @@ package com.sfr.clinic_app.tienda.view;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -12,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.sfr.clinic_app.R;
 import com.sfr.clinic_app.api.Models.Product;
 import com.sfr.clinic_app.databinding.FragmentTiendaBinding;
 import com.sfr.clinic_app.di.appComponent.AppComponent;
@@ -49,13 +52,20 @@ public class TiendaFragmentImpl extends Fragment implements TiendaFragment, Tien
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {;
+                             Bundle savedInstanceState) {
         // Utilizamos el objeto de ViewBinding para inflar el diseño
         binding = FragmentTiendaBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         initInjection();
         recyclerView = binding.recyclerViewReports;
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+        // Configurar el RecyclerView con GridLayoutManager
+        recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 2));
+
+        // Añadir espacio entre los elementos
+        int space = getResources().getDimensionPixelSize(R.dimen.recycler_view_item_space);
+        recyclerView.addItemDecoration(new SpaceItemDecoration(space));
+
         binding.swipeRefreshLayout.setOnRefreshListener(this);
 
         showLoading();

@@ -2,6 +2,7 @@ package com.sfr.clinic_app.citas.view;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -62,6 +63,13 @@ public class CitasFragmentImpl extends Fragment implements CitasFragment, CitasA
 
         showLoading();
         presenter.onAppointmentsFetched();
+
+        binding.buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onGoToRequestNewAppointment(v);
+            }
+        });
         return view;
     }
 
@@ -124,5 +132,9 @@ public class CitasFragmentImpl extends Fragment implements CitasFragment, CitasA
 
         builder.create().show();
 
+    }
+
+    private void onGoToRequestNewAppointment(View v){
+        startActivity(new Intent(requireContext(), NewAppointmentActivity.class));
     }
 }

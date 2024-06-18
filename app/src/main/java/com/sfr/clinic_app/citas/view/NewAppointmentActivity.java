@@ -20,7 +20,7 @@ public class NewAppointmentActivity extends AppCompatActivity {
         setContentView(view);
 
         /*// Establecer la acción del botón
-        binding.btnSubmitAppointment.setOnClickListener(view -> submitAppointment());*/
+        binding.btnSubmitAppointment.setOnClickListener(view -> submitAppointment());
     }
 
    /* private void submitAppointment() {
@@ -45,4 +45,5 @@ public class NewAppointmentActivity extends AppCompatActivity {
     private void saveAppointment(String name, Date date) {
         // Implementa la lógica para guardar la cita
     }*/
+}
 }

@@ -46,6 +46,13 @@ public class CheckoutActivity extends AppCompatActivity implements TiendaFragmen
                 purchase(v);
             }
         });
+
+        binding.btnOnGoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onGoBack(v);
+            }
+        });
     }
 
     private void initInjection() {
@@ -76,6 +83,10 @@ public class CheckoutActivity extends AppCompatActivity implements TiendaFragmen
     private void purchase (View v){
         Date fecha = new Date();
         presenter.purchase(product.getProductoid(), sharedPreferences.getString("usuario_id", null) , String.valueOf(fecha.getDate()),"Pagada");
+    }
+
+    public void onGoBack(View v){
+        finish();
     }
 
 }
